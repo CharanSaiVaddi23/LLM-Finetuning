@@ -14,16 +14,16 @@ Makes fine-tuning easier, though it introduces loss.
 
 ## How to perform Quantization
 
-### **Symmentric unit8 Quantisation** - Similar to Batch Normalisation.
+### **Symmentric unit8 Quantization** - Similar to Batch Normalisation.
 ```mermaid
 graph LR
-fp32[input - fp32] -- Quantisation --> uint8[output - uint8]
+fp32[input - fp32] -- Quantization --> uint8[output - uint8]
 ```
 Ex : 
 ```mermaid
 graph LR
-a[0.0]-- before Quantisation -->b[1000]
-a1[0]-- after Quantisation -->b1[255]
+a[0.0]-- before Quantization -->b[1000]
+a1[0]-- after Quantization -->b1[255]
 ```
 
 To scale it we use min-max scalar
@@ -31,7 +31,7 @@ $$
 scale = {x_{max} - x_{min}\over q_{max} - q_{min}}
 $$
 and round it off
-### **Assymmentric Quantisation** 
+### **Assymmentric Quantization** 
 
 If data is skewed
 ```mermaid
@@ -44,18 +44,18 @@ scale = {x_{max} - x_{min}\over q_{max} - q_{min}}+zero\_point
 $$
 and round it off
 
-## Post Training Quantisation (PTQ) : 
+## Post Training Quantization (PTQ) : 
 
 ```mermaid
 graph LR
 a3[Pretrained Model]-- Traditional W&B -->b3[Calibration]-- Quantised W&B -->c3[Quantised Model]
 ```
 There is a loss, leads to reduced accuarcy.
-## Quantisation Aware Training (QAT) :
+## Quantization Aware Training (QAT) :
 
 ```mermaid
 graph LR
-a3[Pretrained Model]-- Traditional W&B -->b3[Quantisation]-- Quantised W&B -->c3[Finetuning]
+a3[Pretrained Model]-- Traditional W&B -->b3[Quantization]-- Quantised W&B -->c3[Finetuning]
 d3[New Training Data]---->c3
 ```
 As training data is later provided not depending on pretrained w&b accuracy is well maintained.
