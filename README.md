@@ -2,7 +2,7 @@
 
 
 
-# Quantisation
+# Quantization
 
 **Conversion from higher memory format to a lower memory format.**
 Ex: FP 32 - Full Precision each parameter in 32 bits
